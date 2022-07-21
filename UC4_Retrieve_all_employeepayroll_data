@@ -47,20 +47,10 @@ INSERT INTO employee_payroll2 ( name, salary, start) VALUES
 Query OK, 3 rows affected (0.11 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
-select * from employee_payroll2;
-   
-+----+----------+--------+-----------+------------+
-| id | name     | gender | salary    | start      |
-+----+----------+--------+-----------+------------+
-|  1 | Santhosh | M      | 300000000 | 2022-05-22 |
-|  2 | Aravind  | M      |  10000000 | 2022-05-25 |
-|  3 | Namitha  | F      |  10000000 | 2022-05-29 |
-+----+----------+--------+-----------+------------+
-3 rows in set (0.00 sec)
-
 
 #UC4 Ability to retrieve all the employee payroll data that is added to payroll service database
-mysql> SELECT * FROM employee_payroll2;
+
+ SELECT * FROM employee_payroll2;
 +----+----------+----------+------------+
 | id | name     | salary   | start      |
 +----+----------+----------+------------+
