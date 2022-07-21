@@ -1,7 +1,9 @@
-mysql> CREATE DATABASE payroll_services1;
+#UC1 Ability to create a payroll service database
+
+CREATE DATABASE payroll_services1;
 Query OK, 1 row affected (0.13 sec)
 
-mysql> USE payroll_services1;
+ USE payroll_services1;
 Database changed
 mysql> SELECT DATABASE();
 +-------------------+
