@@ -1,0 +1,65 @@
+mysql> update employee_payroll set salary = 300000000.00 where name = 'Santhosh';
+ERROR 1054 (42S22): Unknown column 'salary' in 'field list'
+mysql> update employee_payroll2 set salary = 300000000.00 where name = 'Santhosh';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll2
+    -> ;
++----+----------+--------+-----------+------------+
+| id | name     | gender | salary    | start      |
++----+----------+--------+-----------+------------+
+|  1 | Santhosh | M      | 300000000 | 2022-05-22 |
+|  2 | Aravind  | M      |  10000000 | 2022-05-25 |
+|  3 | Namitha  | F      |  10000000 | 2022-05-29 |
++----+----------+--------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT SUM(salary) FROM employee_payroll
+    -> ^C
+mysql> SELECT SUM(salary) FROM employee_payroll2
+    -> ^C
+mysql> SELECT SUM(salary) FROM employee_payroll2
+    -> WHERE gender = 'M' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|   310000000 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT MIN(salary) FROM employee_payroll2
+    -> WHERE gender = 'M' GROUP BY gender;
++-------------+
+| MIN(salary) |
++-------------+
+|    10000000 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT AVG(salary) FROM employee_payroll2
+    -> WHERE gender = 'M' GROUP BY gender;
++-------------+
+| AVG(salary) |
++-------------+
+|   155000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT gender, AVG(salary) FROM employee_payroll2 GROUP BY gender;
++--------+-------------+
+| gender | AVG(salary) |
++--------+-------------+
+| M      |   155000000 |
+| F      |    10000000 |
++--------+-------------+
+2 rows in set (0.02 sec)
+
+mysql> SELECT gender, COUNT(name) FROM employee_payroll2 GROUP BY gender;
++--------+-------------+
+| gender | COUNT(name) |
++--------+-------------+
+| M      |           2 |
+| F      |           1 |
++--------+-------------+
+2 rows in set (0.00 sec)
